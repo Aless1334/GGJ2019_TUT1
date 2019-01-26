@@ -1,0 +1,15 @@
+
+BGM
+タイトル	TitleGBM.wav
+プレイ中	PlayBGM.wav
+
+SE
+タイトル決定	TitleEnter.mp3
+ゴール	Goal.mp3
+？歩き(足ふみ)
+光射出	Lite.mp3
+リンゴ取得	ItemPick.mp3
+アイテム取得	ItemPick.mp3
+ワイン使用	Wine.mp3
+オノ使用	Sword.mp3
+オオカミ発見	Enemy.mp3
