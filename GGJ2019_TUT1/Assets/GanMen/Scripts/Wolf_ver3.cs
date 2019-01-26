@@ -2,28 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wolf_ver2 : MonoBehaviour
+public class Wolf_ver3 : MonoBehaviour
 {
     public Vector3 chaseTarget;
-    public GameObject player;
-    [SerializeField]private Collider2D wall;
+    [SerializeField] private GameObject player;
+    [SerializeField] private Collider2D wall;
     [SerializeField] private bool isOnCollision;
     public float speed;
     public bool isChase;
     public float reach;
     //public Rigidbody2D rb;
-    private bool canGo;
+    [SerializeField] private bool canGo;
     public float distance;
     public bool isMove;
     private bool isNowMove;
-    [SerializeField] private GameObject search;
 
     // Start is called before the first frame update
     void Start()
     {
-        search = (GameObject)Resources.Load("Prefab/WolfSearch");
         isNowMove = isMove;
-        StartChase();
     }
 
     // Update is called once per frame
@@ -34,6 +31,11 @@ public class Wolf_ver2 : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, chaseTarget, speed);
         }
         IsMove();
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            RayShoot(0,1);
+        }
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void StartChase()
@@ -44,18 +46,6 @@ public class Wolf_ver2 : MonoBehaviour
     private IEnumerator ChaseAI()
     {
         isChase = true;
-        if(Mathf.Abs(transform.position.y - player.transform.position.y) < Mathf.Abs(transform.position.x - player.transform.position.x))
-        {
-            chaseTarget = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
-        }
-        else
-        {
-            chaseTarget = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
-        }
-        while(isMove == true)
-        {
-            yield return null;
-        }
         chaseTarget = player.transform.position;
         while (isOnCollision == false)
         {
@@ -66,26 +56,22 @@ public class Wolf_ver2 : MonoBehaviour
 
             if (player.transform.position.y < transform.position.y)
             {
-                WolfSearch ws0 = Instantiate(search, transform.position - new Vector3(0, reach, 0), Quaternion.identity).GetComponent<WolfSearch>();
-                //yield return null; Debug.Log("ok");
-                yield return new WaitForSeconds(1f);
-                if (ws0.isOnCol == false)
+                canGo = RayTest(0, -1);
+                if (canGo == true)
                 {
                     chaseTarget = new Vector3(transform.position.x, transform.position.y - distance, transform.position.z);
-                    //Destroy(ws0.gameObject);
                 }
                 else
                 {
-                    WolfSearch ws1 = Instantiate(search, transform.position + new Vector3(0, reach, 0), Quaternion.identity).GetComponent<WolfSearch>();
-                    if (ws1.isOnCol == false)
+                    canGo = RayTest(0, 1);
+                    if (canGo == true)
                     {
                         chaseTarget = new Vector3(transform.position.x, transform.position.y + distance, transform.position.z);
-                        //Destroy(ws1.gameObject);
                     }
                     else
                     {
-                        WolfSearch ws2 = Instantiate(search, transform.position + new Vector3(reach, 0, 0), Quaternion.identity).GetComponent<WolfSearch>();
-                        if (ws2.isOnCol == false)
+                        canGo = RayTest(1, 0);
+                        if (canGo == true)
                         {
                             chaseTarget = new Vector3(transform.position.x + distance, transform.position.y, transform.position.z);
                         }
@@ -100,24 +86,24 @@ public class Wolf_ver2 : MonoBehaviour
             else
             {
 
-                WolfSearch ws0 = Instantiate(search, transform.position + new Vector3(0, reach, 0), Quaternion.identity).GetComponent<WolfSearch>();
-                if (ws0.isOnCol == false)
+                canGo = RayTest(0, 1);
+                if (canGo == true)
                 {
                     chaseTarget = new Vector3(transform.position.x, transform.position.y + distance, transform.position.z);
                     //Destroy(ws0.gameObject);
                 }
                 else
                 {
-                    WolfSearch ws1 = Instantiate(search, transform.position - new Vector3(0, reach, 0), Quaternion.identity).GetComponent<WolfSearch>();
-                    if (ws1.isOnCol == false)
+                    canGo = RayTest(0, -1);
+                    if (canGo == true)
                     {
                         chaseTarget = new Vector3(transform.position.x, transform.position.y - distance, transform.position.z);
                         //Destroy(ws1.gameObject);
                     }
                     else
                     {
-                        WolfSearch ws2 = Instantiate(search, transform.position + new Vector3(reach, 0, 0), Quaternion.identity).GetComponent<WolfSearch>();
-                        if (ws2.isOnCol == false)
+                        canGo = RayTest(1, 0);
+                        if (canGo == true)
                         {
                             chaseTarget = new Vector3(transform.position.x + distance, transform.position.y, transform.position.z);
                         }
@@ -134,26 +120,26 @@ public class Wolf_ver2 : MonoBehaviour
         {
             if (player.transform.position.x < transform.position.x)
             {
-                WolfSearch ws0 = Instantiate(search, transform.position - new Vector3(reach, 0, 0), Quaternion.identity).GetComponent<WolfSearch>();
-                if (ws0.isOnCol == false)
+                canGo = RayTest(-1, 0);
+                if (canGo == true)
                 {
-                    chaseTarget = new Vector3(transform.position.x - distance, transform.position.y , transform.position.z);
+                    chaseTarget = new Vector3(transform.position.x - distance, transform.position.y, transform.position.z);
                     //Destroy(ws0.gameObject);
                 }
                 else
                 {
-                    WolfSearch ws01 = Instantiate(search, transform.position + new Vector3(reach, 0, 0), Quaternion.identity).GetComponent<WolfSearch>();
-                    if(ws01.isOnCol == false)
+                    canGo = RayTest(1, 0);
+                    if (canGo == true)
                     {
                         chaseTarget = new Vector3(transform.position.x + distance, transform.position.y, transform.position.z);
                         //Destroy(ws01.gameObject);
                     }
                     else
                     {
-                        WolfSearch ws2 = Instantiate(search, transform.position + new Vector3(0, reach, 0), Quaternion.identity).GetComponent<WolfSearch>();
-                        if(ws2.isOnCol == false)
+                        canGo = RayTest(0, 1);
+                        if (canGo == true)
                         {
-                            chaseTarget = new Vector3(transform.position.x , transform.position.y + distance, transform.position.z);
+                            chaseTarget = new Vector3(transform.position.x, transform.position.y + distance, transform.position.z);
                         }
                         else
                         {
@@ -165,24 +151,24 @@ public class Wolf_ver2 : MonoBehaviour
             }
             else
             {
-                WolfSearch ws0 = Instantiate(search, transform.position + new Vector3(reach, 0, 0), Quaternion.identity).GetComponent<WolfSearch>();
-                if (ws0.isOnCol == false)
+                canGo = RayTest(1, 0);
+                if (canGo == true)
                 {
                     chaseTarget = new Vector3(transform.position.x + distance, transform.position.y, transform.position.z);
                     //Destroy(ws0.gameObject);
                 }
                 else
                 {
-                    WolfSearch ws01 = Instantiate(search, transform.position - new Vector3(reach, 0, 0), Quaternion.identity).GetComponent<WolfSearch>();
-                    if (ws01.isOnCol == false)
+                   canGo = RayTest(-1,0);
+                    if (canGo == true)
                     {
                         chaseTarget = new Vector3(transform.position.x - distance, transform.position.y, transform.position.z);
                         //Destroy(ws01.gameObject);
                     }
                     else
                     {
-                        WolfSearch ws2 = Instantiate(search, transform.position - new Vector3(0, reach, 0), Quaternion.identity).GetComponent<WolfSearch>();
-                        if (ws2.isOnCol == false)
+                        canGo = RayTest(0, -1);
+                        if (canGo == true)
                         {
                             chaseTarget = new Vector3(transform.position.x, transform.position.y - distance, transform.position.z);
                         }
@@ -203,35 +189,38 @@ public class Wolf_ver2 : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Debug.Log("Re");
         StartChase();
-
+        yield break;
 
     }
-    private void RayShoot(float x, float y)
+    private void RayShoot(int x, int y)
     {
         Ray ray = new Ray(transform.position, new Vector3(x, y, 0));
         int distance = 10;
         RaycastHit hit;
-        Debug.DrawLine(ray.origin, ray.direction, Color.red);
+        Debug.DrawLine(ray.origin, ray.direction, Color.red,3f,false);
         if (Physics.Raycast(ray, out hit, distance))
         {
             Debug.Log("false");
         }
     }
-    private bool RayTest(float x, float y)
+    private bool RayTest(int x, int y)
     {
-        Ray ray = new Ray(transform.position, new Vector3(x, y, 0).normalized);
+        Vector2 origin = new Vector2(transform.position.x, transform.position.y);
+        Vector2 direction = new Vector2(x, y);
+        //Ray ray = new Ray(transform.position, direction);
         //new Vector3(transform.position.x * x, transform.position.y * y, transform.position.z));
-        RaycastHit hit;
-        Debug.DrawLine(ray.origin, ray.direction, Color.red);
-        if (Physics.Raycast(ray, out hit, distance))
+        RaycastHit2D hit = Physics2D.Raycast(origin, direction, 0.32f);
+        Debug.DrawRay(origin, direction * 0.32f, Color.blue, 3f, false);
+        if (hit.collider)
         {
-            Debug.Log("false");
+            Debug.Log(hit.collider.name);
             return false;
-
+           
         }
 
         else
         {
+            Debug.Log("RayTrue");
             return true;
         }
     }
