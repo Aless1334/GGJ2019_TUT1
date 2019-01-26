@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class CompassMarker : MonoBehaviour
 {   
-    [SerializeField] private Goal goalObject;
+    private Goal goalObject;
+
+    private void Start()
+    {
+        goalObject = FindObjectOfType<Goal>();
+    }
 
     // Update is called once per frame
     void Update()
