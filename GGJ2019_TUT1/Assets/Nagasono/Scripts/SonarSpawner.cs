@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Nagasono.AudioScripts;
 using UnityEngine;
 
 public class SonarSpawner : MonoBehaviour
@@ -20,7 +21,7 @@ public class SonarSpawner : MonoBehaviour
     private void Start()
     {
         player = GetComponent<PlayerController>();
-        restShootSonarTime = NormalSonarRate;
+        restShootSonarTime = 0.5f;
     }
 
     // Update is called once per frame
@@ -31,6 +32,7 @@ public class SonarSpawner : MonoBehaviour
         {
             BootSonar();
             restShootSonarTime = NormalSonarRate;
+            AudioManager.PlayAudio("Light");
         }
     }
 

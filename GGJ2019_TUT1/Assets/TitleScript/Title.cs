@@ -7,6 +7,8 @@ public class Title : MonoBehaviour
 {
     [SerializeField, Header("操作説明画面")]
     GameObject explane;
+
+    [SerializeField] private AudioSource enterSE;
     FadeManager fadeManager;
 
     // Start is called before the first frame update
@@ -24,6 +26,7 @@ public class Title : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Return) && fadeManager != null)
             {
                 fadeManager.SetFadeOut();
+                enterSE.Play();
             }
         }
         else if (Input.GetKeyDown(KeyCode.Return)) explane.SetActive(true);

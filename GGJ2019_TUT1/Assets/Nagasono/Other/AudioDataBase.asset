@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d6b393fff45e734a9b95da5e954baff, type: 3}
+  m_Name: AudioDataBase
+  m_EditorClassIdentifier: 
+  _audioList:
+  - Key: ItemPick
+    Setting:
+      Clip: {fileID: 8300000, guid: 0a387969c6a241f43989ffe8bc176f82, type: 3}
+      Volume: 1
+  - Key: Enemy
+    Setting:
+      Clip: {fileID: 8300000, guid: 042458661f9930048953aa0a1c9368a2, type: 3}
+      Volume: 1
+  - Key: Goal
+    Setting:
+      Clip: {fileID: 8300000, guid: 4d55323d04780374182c9707129960a7, type: 3}
+      Volume: 1
+  - Key: Light
+    Setting:
+      Clip: {fileID: 8300000, guid: 27ee319a7ae3a054bb5b16ae38c6927b, type: 3}
+      Volume: 0.7
+  - Key: Sword
+    Setting:
+      Clip: {fileID: 8300000, guid: 08a1245643c617640a9db5b213e8b288, type: 3}
+      Volume: 1
+  - Key: Wine
+    Setting:
+      Clip: {fileID: 8300000, guid: cdddf9d9d89987e4d90c641345c1f56a, type: 3}
+      Volume: 1

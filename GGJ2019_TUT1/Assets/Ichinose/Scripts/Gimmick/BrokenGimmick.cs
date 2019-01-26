@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Nagasono.AudioScripts;
 using UnityEngine;
 
 public class BrokenGimmick : BaseGimmick
@@ -29,7 +30,8 @@ public class BrokenGimmick : BaseGimmick
 
     public override void ItemAction(PlayerController player)
     {
-        if (player.HavingItem.HasFlag(ItemType.Wine))
+        if (!player.HavingItem.HasFlag(ItemType.Wine)) return;
+        AudioManager.PlayAudio("Wine");
         isBreak = true;
     }
 }
