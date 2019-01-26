@@ -29,7 +29,14 @@ public abstract class BaseGimmick : MonoBehaviour
     /// <summary>
     /// アイテム時処理
     /// </summary>
-    public abstract void ItemAction();
+    public abstract void ItemAction(PlayerController player);
+
+    protected void OnCollisionEnter2D(Collision2D other)
+    {
+        PlayerController player;
+        if ((player = other.gameObject.GetComponent<PlayerController>()) == null) return;
+        ItemAction(player);
+    }
 }
 
 public enum GimmickType

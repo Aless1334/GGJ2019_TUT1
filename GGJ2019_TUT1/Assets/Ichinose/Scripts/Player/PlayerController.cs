@@ -14,9 +14,17 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigid;
     FadeManager fadeManager;
 
+    private ItemType havingItem;
+
+    public ItemType HavingItem
+    {
+        get { return havingItem; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        havingItem = 0;
         velocity = Vector2.zero;
         GimmickScore.Instance.Init();
         rigid = GetComponent<Rigidbody2D>();
@@ -56,5 +64,15 @@ public class PlayerController : MonoBehaviour
         if (fadeManager == null) return;
         fadeManager.SetReLoad();
         fadeManager.SetFadeOut();
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        BaseItem item;
+        if ((item = other.GetComponent<BaseItem>()) == null) return;
+
+        havingItem |= item.Type;
+        item.Get();
     }
 }

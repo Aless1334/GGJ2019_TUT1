@@ -27,8 +27,9 @@ public class BrokenGimmick : BaseGimmick
         isBreak = false;
     }
 
-    public override void ItemAction()
+    public override void ItemAction(PlayerController player)
     {
+        if (player.HavingItem.HasFlag(ItemType.Wine))
         isBreak = true;
     }
 }
