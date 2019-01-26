@@ -144,7 +144,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -5040,6 +5040,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0ad5eaff9d8f164991f4d2f88bfe2db, type: 3}
+--- !u!114 &838127356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4909908361954950954, guid: cf547a66f14f94c4ca860c8f83018e5f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1054023864}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a45a9e073ef64b479b792d9dd1c183a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1054023864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5301,7 +5313,7 @@ PrefabInstance:
     - target: {fileID: 223457708294410786, guid: c5f37e677539bb24ba084e8641c3eaf0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 223457708294410789, guid: c5f37e677539bb24ba084e8641c3eaf0,
         type: 3}
@@ -5556,5 +5568,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8926567705049180392, guid: 87a39670f6d60d34990d780d5343a4a9,
+        type: 3}
+      propertyPath: goalObject
+      value: 
+      objectReference: {fileID: 838127356}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87a39670f6d60d34990d780d5343a4a9, type: 3}
