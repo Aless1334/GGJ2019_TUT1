@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "SonarVariety", fileName = "new SonarVariety")]
 public class SonarVariety : ScriptableObject
-{   
+{
     [SerializeField] private float speed;
 
     [SerializeField] private int amount;
@@ -37,7 +37,8 @@ public class SonarVariety : ScriptableObject
         var soloAngle = Mathf.PI * 2 / Amount;
         for (var i = 0; i < Amount; i++)
         {
-            var tmpSonar = Instantiate(sonarObject, hostTransform.position, Quaternion.identity).GetComponent<Sonar>();
+//            var tmpSonar = Instantiate(sonarObject, hostTransform.position, Quaternion.identity).GetComponent<Sonar>();
+            var tmpSonar = SonarPool.Instance.Generate(hostTransform.position).GetComponent<Sonar>();
             tmpSonar.moveVector = new Vector3(Speed * Mathf.Sin(soloAngle * i),
                 Speed * Mathf.Cos(soloAngle * i));
             tmpSonar.delaySpeed = DelaySpeed;

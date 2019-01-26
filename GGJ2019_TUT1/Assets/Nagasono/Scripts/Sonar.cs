@@ -15,8 +15,7 @@ public class Sonar : MonoBehaviour
 
     private float delayTime;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
         delayTime = DelayLimit;
         basePosition = transform.position;
@@ -27,14 +26,14 @@ public class Sonar : MonoBehaviour
         transform.position += moveVector * delayTime / (2f * delaySpeed) * Time.deltaTime;
         delayTime -= Time.deltaTime;
         if (delayTime < 0)
-            Destroy(gameObject);
+            gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other1)
     {
         if (other1.CompareTag("Player")) return;
         if (other1.CompareTag("Sonar")) return;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         var position = transform.position;
         Instantiate(lightMask, position, Quaternion.identity).GetComponent<LightMask>().ariveTime =
             BaseLightTime * (LimitMagnitude - (basePosition - position).magnitude) / LimitMagnitude;
