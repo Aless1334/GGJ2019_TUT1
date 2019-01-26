@@ -15,15 +15,21 @@ public class PlayerController : MonoBehaviour
     FadeManager fadeManager;
 
     private ItemType havingItem;
-
     public ItemType HavingItem
     {
         get { return havingItem; }
+    }
+    
+    private bool isMoving;
+    public bool Moving
+    {
+        get { return isMoving; }
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        isMoving = false;
         havingItem = 0;
         velocity = Vector2.zero;
         GimmickScore.Instance.Init();
@@ -34,6 +40,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ResetFlag();
         PlayerInput();
         //PlayerMove();
     }
@@ -47,6 +54,8 @@ public class PlayerController : MonoBehaviour
         float inputY = Input.GetAxis("Vertical");
         velocity = new Vector2(inputX, inputY) * playerSpeed;
         rigid.velocity = velocity;
+
+        isMoving = velocity.magnitude > 0.1f;
     }
 
     /// <summary>
@@ -74,5 +83,10 @@ public class PlayerController : MonoBehaviour
 
         havingItem |= item.Type;
         item.Get();
+    }
+
+    private void ResetFlag()
+    {
+        isMoving = false;
     }
 }

@@ -5760,7 +5760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1783798915
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7225,6 +7225,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 955207327536506824, guid: 87a39670f6d60d34990d780d5343a4a9,
+        type: 3}
+      propertyPath: playerSpeed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87a39670f6d60d34990d780d5343a4a9, type: 3}
