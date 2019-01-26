@@ -13,9 +13,16 @@ public class Player : MonoBehaviour
     Vector2 velocity; //速度
     Rigidbody2D rigid;
 
+    private ItemType havingItem;
+    public ItemType HavingItem
+    {
+        get { return havingItem; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        havingItem = 0;
         velocity = Vector2.zero;
         rigid = GetComponent<Rigidbody2D>();
     }
@@ -46,5 +53,14 @@ public class Player : MonoBehaviour
         Vector2 playerPosition = transform.position;
         playerPosition += velocity * playerSpeed * Time.deltaTime;
         transform.position = playerPosition;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        BaseItem item;
+        if ((item = other.GetComponent<BaseItem>()) == null) return;
+
+        havingItem |= item.Type;
+        item.Get();
     }
 }
