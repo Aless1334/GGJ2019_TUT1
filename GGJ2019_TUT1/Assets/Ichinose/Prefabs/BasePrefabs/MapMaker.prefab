@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7662869129722396826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7662869129722396824}
+  - component: {fileID: 7662869129722396825}
+  m_Layer: 0
+  m_Name: MapMaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7662869129722396824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7662869129722396826}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7662869129722396825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7662869129722396826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6d685fa5a164d24b841b666afe90353, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textAsset: {fileID: 4900000, guid: da09f9bfa17ea624598edb705f6763a9, type: 3}
+  mapChipList:
+  - name: Field
+    number: 0
+    sprite: {fileID: 21300000, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 1
+    sprite: {fileID: 21300002, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 1
+  - name: Field
+    number: 2
+    sprite: {fileID: 21300004, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 3
+    sprite: {fileID: 21300006, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 4
+    sprite: {fileID: 21300008, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 5
+    sprite: {fileID: 21300010, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 6
+    sprite: {fileID: 21300012, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 7
+    sprite: {fileID: 21300014, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 8
+    sprite: {fileID: 21300016, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 9
+    sprite: {fileID: 21300018, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 10
+    sprite: {fileID: 21300020, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 11
+    sprite: {fileID: 21300022, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 12
+    sprite: {fileID: 21300024, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 13
+    sprite: {fileID: 21300026, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 14
+    sprite: {fileID: 21300028, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 15
+    sprite: {fileID: 21300030, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 16
+    sprite: {fileID: 21300032, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 17
+    sprite: {fileID: 21300040, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 18
+    sprite: {fileID: 21300042, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
+  - name: Field
+    number: 19
+    sprite: {fileID: 21300054, guid: 7c9dbb1d5e82e504c8770f7ec0a4ba7f, type: 3}
+    isCollision: 0
