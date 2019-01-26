@@ -8,7 +8,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: bea5c6dcc6e5f354ca43c6c3db46dbc4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: b3ff7ae5e364be94083c11cbfa4ad765
+  - enabled: 1
+    path: Assets/Wakis/Scene/Stage0/Stage00.unity
+    guid: 852dde1045a7328429e523c9337c85e1
+  - enabled: 1
+    path: Assets/Wakis/Scene/Stage1/Stage01.unity
+    guid: d06ce7fd7e0b4ff41b0499b088db4c42
+  - enabled: 1
+    path: Assets/Wakis/Scene/Stage2/Stage02.unity
+    guid: 3c89381ee7f808a47b27105ae06a45ea
+  - enabled: 1
+    path: Assets/Wakis/Scene/Stage3/Stage03.unity
+    guid: 207079d4094962442b67fd8c0633345e
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 137bbd5980849c4479178860f4a346f5
   m_configObjects: {}

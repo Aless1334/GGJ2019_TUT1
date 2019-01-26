@@ -5425,6 +5425,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 223457708294410788, guid: c5f37e677539bb24ba084e8641c3eaf0,
+        type: 3}
+      propertyPath: scene.sceneObject.m_SceneName
+      value: Stage01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5f37e677539bb24ba084e8641c3eaf0, type: 3}
 --- !u!1001 &806885481147295092
@@ -5562,11 +5567,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 955207327536506825, guid: 87a39670f6d60d34990d780d5343a4a9,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8926567705049180392, guid: 87a39670f6d60d34990d780d5343a4a9,
         type: 3}
