@@ -9,12 +9,14 @@ using UnityEditor;
 /// </summary>
 public class I_MapMaker : MonoBehaviour
 {
+    private const float ItemPixel = 1f;
+    
     [SerializeField, Header("読込むテキストファイル")]
     TextAsset textAsset;
-    [SerializeField, Header("マップチップ設定")]
-    List<MapChip> mapChipList;
+    [SerializeField, Header("アイテムデータベース")]
+    ItemDatabase itemList;
 
-    string[][] mapChip; //マップチップ
+    string[][] itemChip; //マップチップ
 
     /// <summary>
     /// マップ生成処理
@@ -22,7 +24,7 @@ public class I_MapMaker : MonoBehaviour
     public void Make()
     {
         ReadText();
-        if (mapChip == null) return;
+        if (itemChip == null) return;
         DeleteChildren();
         InstanceChip();
     }
@@ -41,10 +43,10 @@ public class I_MapMaker : MonoBehaviour
             txtList.Add(line.Split(','));
         }
 
-        mapChip = new string[txtList.Count][];
+        itemChip = new string[txtList.Count][];
         for (int i = 0; i < txtList.Count; i++)
         {
-            mapChip[i] = txtList[i];
+            itemChip[i] = txtList[i];
         }
     }
 
@@ -65,47 +67,30 @@ public class I_MapMaker : MonoBehaviour
     /// </summary>
     void InstanceChip()
     {
-        if (mapChip == null || mapChip.Length <= 0) return;
-        float yLength = mapChip.Length;
-        float xLength = mapChip[0].Length;
+        if (itemChip == null || itemChip.Length <= 0) return;
+        float yLength = itemChip.Length;
+        float xLength = itemChip[0].Length;
 
-        for (int i = 0; i < mapChip.Length; i++)
+        for (int i = 0; i < itemChip.Length; i++)
         {
-            for (int j = 0; j < mapChip[i].Length; j++)
+            for (int j = 0; j < itemChip[i].Length; j++)
             {
                 int number;
-                bool parsed = int.TryParse(mapChip[i][j], out number);
+                bool parsed = int.TryParse(itemChip[i][j], out number);
                 if (!parsed) continue;
 
-                var chip = mapChipList.Find(c => c.number == number);
+                if (number < 0 || number >= itemList.Items.Length) continue;
+                var chip = itemList.Items[number];
                 if (chip == null) continue;
 
-                var obj = new GameObject();
-                obj.name = chip.name;
+                var obj = Instantiate(chip.gameObject,
+                    Vector2.zero, Quaternion.identity);
                 obj.transform.parent = transform;
-
-                var sr = obj.AddComponent<SpriteRenderer>();
-                sr.sprite = chip.sprite;
-
-                Vector2 size = sr.size;
-                obj.transform.position =
-                    new Vector2( /*-xLength / 2*/ +j, /*yLength / 2*/ -i) * size;
-
-                if (!chip.isCollision) continue;
-                var col = Undo.AddComponent<BoxCollider2D>(obj);
-                col.size = size;
+                obj.name = chip.name;
+                obj.transform.position = new Vector2(+j, -i) * ItemPixel;
+                
+                obj.transform.localScale = new Vector3(0.6f,0.6f,0.6f);
             }
-        }
-    }
-
-    /// <summary>
-    /// リストの始めから順に番号を指定していく
-    /// </summary>
-    public void SetNumber()
-    {
-        for (int i = 0; i < mapChipList.Count; i++)
-        {
-            mapChipList[i].number = i;
         }
     }
 }
