@@ -35,7 +35,7 @@ public class Sonar : MonoBehaviour
         if (other1.CompareTag("Sonar")) return;
         gameObject.SetActive(false);
         var position = transform.position;
-        Instantiate(lightMask, position, Quaternion.identity).GetComponent<LightMask>().ariveTime =
+        LightMaskPool.Instance.Generate(position).GetComponent<LightMask>().ariveTime =
             BaseLightTime * (LimitMagnitude - (basePosition - position).magnitude) / LimitMagnitude;
     }
 }

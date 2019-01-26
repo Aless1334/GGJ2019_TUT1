@@ -11,6 +11,6 @@ public class LightMask : MonoBehaviour
     {
         ariveTime -= Time.deltaTime;
         if (ariveTime < 0)
-            Destroy(gameObject);
+            gameObject.SetActive(false);
     }
 }
