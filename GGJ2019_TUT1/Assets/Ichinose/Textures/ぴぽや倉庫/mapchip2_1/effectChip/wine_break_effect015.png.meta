@@ -1,7 +1,15 @@
 fileFormatVersion: 2
 guid: 06f0d5d82a08eee429be365b66ed5a24
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: wine_break_effect015_0
+    21300002: wine_break_effect015_1
+    21300004: wine_break_effect015_2
+    21300006: wine_break_effect015_3
+    21300008: wine_break_effect015_4
+    21300010: wine_break_effect015_5
+    21300012: wine_break_effect015_6
+    21300014: wine_break_effect015_7
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -40,7 +48,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -69,9 +77,191 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: wine_break_effect015_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 120f366b27fbdb349a2d16df54f058f8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wine_break_effect015_1
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe9b662b621c6ca4d83dad4cd52851e9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wine_break_effect015_2
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54e7f2cb366a0fa4b841a36caee8bb3b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wine_break_effect015_3
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6da7606b8efb2d246bab369e64a0e139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wine_break_effect015_4
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dced0aa4853f7ea448b7cd7a17a935ea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wine_break_effect015_5
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebdbbcb0274d8534687ed24bd01684b0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wine_break_effect015_6
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be51754f2a2b4b74aace97e80a592a8d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wine_break_effect015_7
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d70aeaedc093f4498631a9ed1fd7463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

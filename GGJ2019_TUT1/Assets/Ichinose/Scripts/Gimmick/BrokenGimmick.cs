@@ -12,6 +12,8 @@ public class BrokenGimmick : BaseGimmick
     float breakingTime;
     bool isBreak;
 
+    [SerializeField] private GameObject effect;
+
     public override void Action()
     {
         if (!isBreak) return;
@@ -31,6 +33,7 @@ public class BrokenGimmick : BaseGimmick
     public override void ItemAction(PlayerController player)
     {
         if (!player.HavingItem.HasFlag(ItemType.Wine)) return;
+        effect.SetActive(true);
         AudioManager.PlayAudio("Wine");
         isBreak = true;
     }
