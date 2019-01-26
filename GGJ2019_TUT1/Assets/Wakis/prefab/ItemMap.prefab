@@ -44,8 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textAsset: {fileID: 0}
-  mapChipList:
-  - name: 
-    number: 0
-    sprite: {fileID: 0}
-    isCollision: 0
+  mapChipList: []

@@ -32,7 +32,7 @@ public class I_MapMaker : MonoBehaviour
     /// </summary>
     void ReadText()
     {
-        if (textAsset == null) { Debug.Log("aa"); return; }
+        if (textAsset == null) {  return; }
         StringReader reader = new StringReader(textAsset.text);
         List<string[]> txtList = new List<string[]>();
         while (reader.Peek() != -1)
