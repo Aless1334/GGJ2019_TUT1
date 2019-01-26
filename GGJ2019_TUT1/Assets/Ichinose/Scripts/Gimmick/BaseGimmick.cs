@@ -6,7 +6,8 @@ public abstract class BaseGimmick : MonoBehaviour
 {
     protected GimmickType type;
 
-    [SerializeField] protected SpriteMask objectMask;
+    [SerializeField]
+    protected SpriteMask objectMask;
     private float restLightTime;
 
     void Start()
@@ -28,6 +29,11 @@ public abstract class BaseGimmick : MonoBehaviour
         }
 
         Action();
+    }
+
+    public GimmickType Type
+    {
+        get { return type; }
     }
 
     /// <summary>
