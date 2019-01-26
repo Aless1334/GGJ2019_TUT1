@@ -2,11 +2,11 @@
 BGM
 タイトル	TitleGBM.wav
 プレイ中	PlayBGM.wav
+リザルト画面	EndBGM.mp3
 
 SE
 タイトル決定	TitleEnter.mp3
 ゴール	Goal.mp3
-？歩き(足ふみ)
 光射出	Lite.mp3
 リンゴ取得	ItemPick.mp3
 アイテム取得	ItemPick.mp3
