@@ -16,7 +16,7 @@ MonoBehaviour:
   - Key: ItemPick
     Setting:
       Clip: {fileID: 8300000, guid: 0a387969c6a241f43989ffe8bc176f82, type: 3}
-      Volume: 1
+      Volume: 1.5
   - Key: Enemy
     Setting:
       Clip: {fileID: 8300000, guid: 042458661f9930048953aa0a1c9368a2, type: 3}
