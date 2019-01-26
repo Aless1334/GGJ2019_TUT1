@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Sonar
   - GoalArea
+  - Wall
   layers:
   - Default
   - TransparentFX
