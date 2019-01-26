@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Sonar : MonoBehaviour
 {
-    private const float LimitMagnitude = 5f;
+    private const float LimitMagnitude = 4f;
     private const float DelayLimit = 2f;
+    private const float BaseLightTime = 2f;
 
     [SerializeField] private GameObject lightMask;
     private Vector3 basePosition;
@@ -36,6 +37,6 @@ public class Sonar : MonoBehaviour
         Destroy(gameObject);
         var position = transform.position;
         Instantiate(lightMask, position, Quaternion.identity).GetComponent<LightMask>().ariveTime =
-            (LimitMagnitude - (basePosition - position).magnitude);
+            BaseLightTime * (LimitMagnitude - (basePosition - position).magnitude) / LimitMagnitude;
     }
 }
