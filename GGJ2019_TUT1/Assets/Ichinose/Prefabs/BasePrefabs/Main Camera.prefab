@@ -97,5 +97,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagName: 5
   chaseTarget: {fileID: 0}
-  chaseSpeed: 3
-  chaseLength: 15
+  chaseSpeed: 5
+  chaseLength: 0.2
