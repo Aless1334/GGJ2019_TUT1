@@ -94,10 +94,6 @@ public class MapMaker : MonoBehaviour
                 if (!chip.isCollision) continue;
                 var col = Undo.AddComponent<BoxCollider2D>(obj);
                 col.size = size;
-
-                var rigid = Undo.AddComponent<Rigidbody2D>(obj);
-                rigid.bodyType = RigidbodyType2D.Kinematic;
-                rigid.constraints = RigidbodyConstraints2D.FreezeAll;
             }
         }
     }
