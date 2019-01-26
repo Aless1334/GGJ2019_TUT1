@@ -33,6 +33,8 @@ public class Sonar : MonoBehaviour
     {
         if (other1.CompareTag("Player")) return;
         if (other1.CompareTag("Sonar")) return;
+        if (other1.CompareTag("GoalArea")) return;
+        
         gameObject.SetActive(false);
 
         var position = transform.position;
