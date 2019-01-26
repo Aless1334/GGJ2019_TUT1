@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// プレイヤー処理
 /// </summary>
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [SerializeField, Range(0.0f, 100.0f), Header("速度")]
     float playerSpeed = 5.0f;
@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     {
         havingItem = 0;
         velocity = Vector2.zero;
+        GimmickScore.Instance.Init();
         rigid = GetComponent<Rigidbody2D>();
     }
 
