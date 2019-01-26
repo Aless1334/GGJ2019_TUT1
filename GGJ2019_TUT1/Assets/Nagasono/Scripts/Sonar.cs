@@ -34,7 +34,16 @@ public class Sonar : MonoBehaviour
         if (other1.CompareTag("Player")) return;
         if (other1.CompareTag("Sonar")) return;
         gameObject.SetActive(false);
+
         var position = transform.position;
+
+        BaseGimmick gimmick;
+        if ((gimmick = other1.GetComponent<BaseGimmick>()) != null)
+        {
+            gimmick.LightUp(BaseLightTime * (LimitMagnitude - (basePosition - position).magnitude) / LimitMagnitude);
+            return;
+        }
+
         LightMaskPool.Instance.Generate(position).GetComponent<LightMask>().ariveTime =
             BaseLightTime * (LimitMagnitude - (basePosition - position).magnitude) / LimitMagnitude;
     }

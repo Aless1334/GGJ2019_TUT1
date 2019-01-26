@@ -6,13 +6,27 @@ public abstract class BaseGimmick : MonoBehaviour
 {
     protected GimmickType type;
 
+    [SerializeField] protected SpriteMask objectMask;
+    private float restLightTime;
+
     void Start()
     {
+        objectMask.gameObject.SetActive(false);
         Init();
+        restLightTime = -1;
     }
 
     void Update()
     {
+        if (restLightTime >= 0)
+        {
+            restLightTime -= Time.deltaTime;
+            if (restLightTime < 0)
+            {
+                objectMask.gameObject.SetActive(false);
+            }
+        }
+
         Action();
     }
 
@@ -30,6 +44,11 @@ public abstract class BaseGimmick : MonoBehaviour
     /// アイテム時処理
     /// </summary>
     public abstract void ItemAction(PlayerController player);
+
+    public void LightUp(float time)
+    {
+        objectMask.gameObject.SetActive(true);
+    }
 
     protected void OnCollisionEnter2D(Collision2D other)
     {

@@ -304,7 +304,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 6547b34224e63d94abe7521f88f22a60, type: 3}
 --- !u!114 &592739130 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7631095024059141451, guid: 6547b34224e63d94abe7521f88f22a60,
+  m_CorrespondingSourceObject: {fileID: 9112419310761031658, guid: 6547b34224e63d94abe7521f88f22a60,
     type: 3}
   m_PrefabInstance: {fileID: 592739129}
   m_PrefabAsset: {fileID: 0}
@@ -915,16 +915,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 223457708294410787, guid: c5f37e677539bb24ba084e8641c3eaf0,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 519420031}
     - target: {fileID: 223457708294410788, guid: c5f37e677539bb24ba084e8641c3eaf0,
         type: 3}
       propertyPath: scene.sceneObject.m_SceneName
       value: Stage02
       objectReference: {fileID: 0}
+    - target: {fileID: 223457708294410787, guid: c5f37e677539bb24ba084e8641c3eaf0,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5f37e677539bb24ba084e8641c3eaf0, type: 3}
 --- !u!1001 &806885481147295092
