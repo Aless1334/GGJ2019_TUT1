@@ -9,12 +9,12 @@ using UnityEditor;
 /// </summary>
 public class I_MapMaker : MonoBehaviour
 {
-    private const float ItemPixel = 1f;
-    
+    private const float ItemPixel = 0.64f;
+
     [SerializeField, Header("読込むテキストファイル")]
     TextAsset textAsset;
-    [SerializeField, Header("アイテムデータベース")]
-    ItemDatabase itemList;
+
+    [SerializeField, Header("アイテムデータベース")] ItemDatabase itemList;
 
     string[][] itemChip; //マップチップ
 
@@ -34,7 +34,11 @@ public class I_MapMaker : MonoBehaviour
     /// </summary>
     void ReadText()
     {
-        if (textAsset == null) {  return; }
+        if (textAsset == null)
+        {
+            return;
+        }
+
         StringReader reader = new StringReader(textAsset.text);
         List<string[]> txtList = new List<string[]>();
         while (reader.Peek() != -1)
@@ -83,13 +87,13 @@ public class I_MapMaker : MonoBehaviour
                 var chip = itemList.Items[number];
                 if (chip == null) continue;
 
-                var obj = Instantiate(chip.gameObject,
-                    Vector2.zero, Quaternion.identity);
-                obj.transform.parent = transform;
+                var obj = Instantiate(chip.gameObject, Vector2.zero, Quaternion.identity, transform);
                 obj.name = chip.name;
-                obj.transform.position = new Vector2(+j, -i) * ItemPixel;
-                
-                obj.transform.localScale = new Vector3(0.6f,0.6f,0.6f);
+
+                obj.transform.position =
+                    new Vector2(j, -i) * ItemPixel;
+
+                Undo.RegisterCreatedObjectUndo(obj, "Create IMap");
             }
         }
     }

@@ -28,7 +28,7 @@ MonoBehaviour:
   - Key: Light
     Setting:
       Clip: {fileID: 8300000, guid: 27ee319a7ae3a054bb5b16ae38c6927b, type: 3}
-      Volume: 0.4
+      Volume: 0.6
   - Key: Sword
     Setting:
       Clip: {fileID: 8300000, guid: 08a1245643c617640a9db5b213e8b288, type: 3}
