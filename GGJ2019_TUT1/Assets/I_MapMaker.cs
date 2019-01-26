@@ -14,7 +14,7 @@ public class I_MapMaker : MonoBehaviour
     [SerializeField, Header("読込むテキストファイル")]
     TextAsset textAsset;
 
-    [SerializeField, Header("アイテムデータベース")] ItemDatabase itemList;
+    [SerializeField, Header("アイテムデータベース")] GameObject[] objectList;
 
     string[][] itemChip; //マップチップ
 
@@ -83,8 +83,8 @@ public class I_MapMaker : MonoBehaviour
                 bool parsed = int.TryParse(itemChip[i][j], out number);
                 if (!parsed) continue;
 
-                if (number < 0 || number >= itemList.Items.Length) continue;
-                var chip = itemList.Items[number];
+                if (number < 0 || number >= objectList.Length) continue;
+                var chip = objectList[number];
                 if (chip == null) continue;
 
                 var obj = Instantiate(chip.gameObject, Vector2.zero, Quaternion.identity, transform);
