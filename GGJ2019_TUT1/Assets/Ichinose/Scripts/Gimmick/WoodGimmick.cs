@@ -20,9 +20,7 @@ public class WoodGimmick : BaseGimmick
     public override void ItemAction(PlayerController player)
     {
         if (!player.HavingItem.HasFlag(ItemType.Ax)) return;
-        Instantiate(AxEffect,
-            new Vector3(transform.position.x - 0.3f, transform.position.y + 0.8f),
-            Quaternion.identity);
+        AxEffect.SetActive(true);
         //Destroy(gameObject);
         Invoke("ObjDestroy", 0.5f);
         AudioManager.PlayAudio("Sword");
