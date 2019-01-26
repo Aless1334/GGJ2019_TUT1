@@ -13,3 +13,4 @@ SE
 ワイン使用	Wine.mp3
 オノ使用	Sword.mp3
 オオカミ発見	Enemy.mp3
+オオカミヒット	EnemyHit.mp3
