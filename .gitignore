@@ -36,3 +36,4 @@ sysinfo.txt
 *.unitypackage
 
 .idea/
+GGJ2019_TUT1/Assets/Plugins/Editor/JetBrains*
