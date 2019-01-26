@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// アイテム親クラス
 /// </summary>
-public class BaseItem : MonoBehaviour
+public abstract class BaseItem : MonoBehaviour
 {
     //アイテム名
     protected string name = "item";
@@ -13,12 +11,12 @@ public class BaseItem : MonoBehaviour
     /// <summary>
     /// 入手時処理
     /// </summary>
-    public virtual void Get() { }
+    public abstract void Get();
 
     /// <summary>
     /// 使用時処理
     /// </summary>
-    public virtual void Use() { }
+    public abstract void Use();
 }
 
 /// <summary>
