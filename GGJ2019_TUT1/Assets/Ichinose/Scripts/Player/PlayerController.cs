@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     Vector2 velocity; //速度
     Rigidbody2D rigid;
+    FadeManager fadeManager;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
         velocity = Vector2.zero;
         GimmickScore.Instance.Init();
         rigid = GetComponent<Rigidbody2D>();
+        fadeManager = FindObjectOfType<FadeManager>();
     }
 
     // Update is called once per frame
@@ -47,5 +49,12 @@ public class PlayerController : MonoBehaviour
         Vector2 playerPosition = transform.position;
         playerPosition += velocity * playerSpeed * Time.deltaTime;
         transform.position = playerPosition;
+    }
+
+    public void Dead()
+    {
+        if (fadeManager == null) return;
+        fadeManager.SetReLoad();
+        fadeManager.SetFadeOut();
     }
 }

@@ -29,6 +29,7 @@ public class FadeManager : MonoBehaviour
     public bool isTitle, isGamePlay;
 
     bool fadeIn, fadeOut, fadeEnd;
+    bool isReLoad;
     float fadeTimer = 0.0f;
     Vector2 size;
     List<List<Image>> imageList;
@@ -85,7 +86,19 @@ public class FadeManager : MonoBehaviour
 
     void Load()
     {
+        if (isReLoad) return;
         scene.Load();
+    }
+
+    void ReLoad()
+    {
+        if (!isReLoad) return;
+        scene.ReLoad();
+    }
+
+    public void SetReLoad()
+    {
+        isReLoad = true;
     }
 
     void SetRandom()

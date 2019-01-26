@@ -22,6 +22,11 @@ public class LoadScene
         SceneManager.LoadScene(sceneObject.ToString());
     }
 
+    public void ReLoad()
+    {
+        return;
+    }
+
     /// <summary>
     /// シーンがあるか否か
     /// </summary>
