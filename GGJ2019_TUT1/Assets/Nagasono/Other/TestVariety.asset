@@ -15,3 +15,4 @@ MonoBehaviour:
   speed: 2
   amount: 16
   delaySpeed: 1.1
+  dashSonarRate: 1.5
