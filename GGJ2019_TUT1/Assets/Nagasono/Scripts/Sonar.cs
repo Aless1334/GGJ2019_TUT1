@@ -32,6 +32,7 @@ public class Sonar : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other1)
     {
         if (other1.CompareTag("Player")) return;
+        if (other1.CompareTag("Sonar")) return;
         Destroy(gameObject);
         var position = transform.position;
         Instantiate(lightMask, position, Quaternion.identity).GetComponent<LightMask>().ariveTime =

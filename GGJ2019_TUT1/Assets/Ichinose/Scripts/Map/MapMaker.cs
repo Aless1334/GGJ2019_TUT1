@@ -22,6 +22,7 @@ public class MapMaker : MonoBehaviour
     public void Make()
     {
         ReadText();
+        if (mapChip == null) return;
         DeleteChildren();
         InstanceChip();
     }
@@ -49,11 +50,10 @@ public class MapMaker : MonoBehaviour
 
     /// <summary>
     /// 子オブジェクト全削除
+    /// PrefabだとError
     /// </summary>
-    void DeleteChildren()
+    public void DeleteChildren()
     {
-        if (mapChip == null) return;
-
         while (transform.childCount > 0)
         {
             DestroyImmediate(transform.GetChild(0).gameObject);
@@ -94,10 +94,6 @@ public class MapMaker : MonoBehaviour
                 if (!chip.isCollision) continue;
                 var col = Undo.AddComponent<BoxCollider2D>(obj);
                 col.size = size;
-
-                var rigid = Undo.AddComponent<Rigidbody2D>(obj);
-                rigid.bodyType = RigidbodyType2D.Kinematic;
-                rigid.constraints = RigidbodyConstraints2D.FreezeAll;
             }
         }
     }

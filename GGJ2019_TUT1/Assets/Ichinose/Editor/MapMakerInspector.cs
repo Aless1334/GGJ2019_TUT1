@@ -19,5 +19,9 @@ public class MapMakerInspector : Editor
         {
             mapMaker.SetNumber();
         }
+        if (GUILayout.Button("子オブジェクト全削除"))
+        {
+            mapMaker.DeleteChildren();
+        }
     }
 }
