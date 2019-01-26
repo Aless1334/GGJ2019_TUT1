@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adde4ff8ae7b2834e8bf6cfd55018b79, type: 3}
   m_Name: TestVariety
   m_EditorClassIdentifier: 
-  speed: 3
-  amount: 8
+  speed: 2
+  amount: 16
+  delaySpeed: 1.1

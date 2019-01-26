@@ -24,9 +24,10 @@ public class SonarSpawner : MonoBehaviour
         var soloAngle = Mathf.PI * 2 / sonarSetting.Amount;
         for (var i = 0; i < sonarSetting.Amount; i++)
         {
-            Instantiate(sonar.gameObject, transform.position, Quaternion.identity).GetComponent<Sonar>().moveVector =
-                new Vector3(sonarSetting.Speed * Mathf.Sin(soloAngle * i),
-                    sonarSetting.Speed * Mathf.Cos(soloAngle * i));
+            var tmpSonar = Instantiate(sonar.gameObject, transform.position, Quaternion.identity).GetComponent<Sonar>();
+            tmpSonar.moveVector = new Vector3(sonarSetting.Speed * Mathf.Sin(soloAngle * i),
+                sonarSetting.Speed * Mathf.Cos(soloAngle * i));
+            tmpSonar.delaySpeed = sonarSetting.DelaySpeed;
         }
     }
 }

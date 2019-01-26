@@ -8,6 +8,7 @@ public class SonarVariety : ScriptableObject
     [SerializeField] private float speed;
 
     [SerializeField] private int amount;
+    [SerializeField] private float delaySpeed;
 
     public float Speed
     {
@@ -17,5 +18,10 @@ public class SonarVariety : ScriptableObject
     public int Amount
     {
         get { return amount; }
+    }
+
+    public float DelaySpeed
+    {
+        get { return delaySpeed; }
     }
 }
