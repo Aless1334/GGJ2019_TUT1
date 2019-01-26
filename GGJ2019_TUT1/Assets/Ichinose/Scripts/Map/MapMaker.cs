@@ -88,11 +88,15 @@ public class MapMaker : MonoBehaviour
 
                 Vector2 size = sr.size;
                 obj.transform.position =
-                    new Vector2(-xLength / 2 + j, yLength / 2 - i) * size;
+                    new Vector2(/*-xLength / 2*/ + j, /*yLength / 2*/ - i) * size;
 
                 if (!chip.isCollision) continue;
                 var col = obj.AddComponent<BoxCollider2D>();
                 col.size = size;
+
+                var rigid = obj.AddComponent<Rigidbody2D>();
+                rigid.bodyType = RigidbodyType2D.Kinematic;
+                rigid.constraints = RigidbodyConstraints2D.FreezeAll;
             }
         }
     }
