@@ -21,7 +21,7 @@ public class SonarSpawner : MonoBehaviour
     private void Start()
     {
         player = GetComponent<PlayerController>();
-        restShootSonarTime = 0.5f;
+        restShootSonarTime = NormalSonarRate;
     }
 
     // Update is called once per frame
