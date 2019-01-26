@@ -15,7 +15,7 @@ public class WoodGimmick : BaseGimmick
     {
     }
 
-    public override void ItemAction(Player player)
+    public override void ItemAction(PlayerController player)
     {
         if (player.HavingItem.HasFlag(ItemType.Ax))
             Destroy(gameObject);

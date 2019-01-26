@@ -29,12 +29,12 @@ public abstract class BaseGimmick : MonoBehaviour
     /// <summary>
     /// アイテム時処理
     /// </summary>
-    public abstract void ItemAction(Player player);
+    public abstract void ItemAction(PlayerController player);
 
     protected void OnCollisionEnter2D(Collision2D other)
     {
-        Player player;
-        if ((player = other.gameObject.GetComponent<Player>()) == null) return;
+        PlayerController player;
+        if ((player = other.gameObject.GetComponent<PlayerController>()) == null) return;
         ItemAction(player);
     }
 }
