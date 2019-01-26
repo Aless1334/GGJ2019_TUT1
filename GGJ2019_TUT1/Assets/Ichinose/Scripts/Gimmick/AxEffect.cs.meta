@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: c2c6110b4bb5be94fa4b15865bd3bb27
+guid: 7fd29b7f01f7f4948b862ad19b6a5eff
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - AxEffect: {fileID: 5095544236372536774, guid: 54df1933994980046b85bbaf6a1298f0,
-      type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
