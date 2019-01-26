@@ -24,6 +24,7 @@ public class Goal : MonoBehaviour
         if (col.gameObject != target) return;
         if (fadeManager == null) return;
         fadeManager.SetFadeOut();
+        GimmickScore.Instance.SetPoint();
     }
 
     /// <summary>

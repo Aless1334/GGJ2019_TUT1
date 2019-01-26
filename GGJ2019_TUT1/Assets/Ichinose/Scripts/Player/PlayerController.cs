@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         get { return havingItem; }
     }
-    
+
     private bool isMoving;
     public bool Moving
     {
@@ -32,7 +32,9 @@ public class PlayerController : MonoBehaviour
         isMoving = false;
         havingItem = 0;
         velocity = Vector2.zero;
-        GimmickScore.Instance.Init();
+        var gimmicks = new List<ScoreItem>(FindObjectsOfType<ScoreItem>());
+        int apple = gimmicks.FindAll(i => i.Type == ItemType.Apple).Count;
+        GimmickScore.Instance.Init(apple);
         rigid = GetComponent<Rigidbody2D>();
         fadeManager = FindObjectOfType<FadeManager>();
     }
