@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 989837548}
   - component: {fileID: 989837547}
   m_Layer: 0
-  m_Name: IMapMaker
+  m_Name: IMapMaker_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
   - {fileID: 1612841006177276296, guid: ba8cb4e43bf1a424b8c393d343adc154, type: 3}
   - {fileID: 1612841006177276296, guid: 6f35ef2d8258da94c8abf198d246c876, type: 3}
   - {fileID: 1612841006177276296, guid: bfdcafbc8d633704c860086b74c0a050, type: 3}
-  - {fileID: 1812013650518977800, guid: e544a7990c8a01c409ab3ac760afbd1c, type: 3}
+  - {fileID: 3535828084669321530, guid: e544a7990c8a01c409ab3ac760afbd1c, type: 3}
   - {fileID: 50927937844234693, guid: 63ab177ec5c1d4645b8273d3f5d4208f, type: 3}
   - {fileID: 1563773439656494822, guid: 5179d594dcc53b0499a1640e3be987b3, type: 3}
   - {fileID: 0}
@@ -14553,6 +14553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c6110b4bb5be94fa4b15865bd3bb27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AxEffect: {fileID: 0}
 --- !u!61 &429736928811221857
 BoxCollider2D:
   m_ObjectHideFlags: 0
