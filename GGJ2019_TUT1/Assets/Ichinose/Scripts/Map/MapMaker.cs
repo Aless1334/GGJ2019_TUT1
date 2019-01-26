@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEditor;
 
 /// <summary>
 /// マップ生成
@@ -88,13 +89,13 @@ public class MapMaker : MonoBehaviour
 
                 Vector2 size = sr.size;
                 obj.transform.position =
-                    new Vector2(/*-xLength / 2*/ + j, /*yLength / 2*/ - i) * size;
+                    new Vector2( /*-xLength / 2*/ +j, /*yLength / 2*/ -i) * size;
 
                 if (!chip.isCollision) continue;
-                var col = obj.AddComponent<BoxCollider2D>();
+                var col = Undo.AddComponent<BoxCollider2D>(obj);
                 col.size = size;
 
-                var rigid = obj.AddComponent<Rigidbody2D>();
+                var rigid = Undo.AddComponent<Rigidbody2D>(obj);
                 rigid.bodyType = RigidbodyType2D.Kinematic;
                 rigid.constraints = RigidbodyConstraints2D.FreezeAll;
             }
