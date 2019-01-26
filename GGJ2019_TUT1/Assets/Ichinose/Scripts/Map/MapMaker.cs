@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 /// <summary>
 /// マップ生成
@@ -11,8 +13,8 @@ public class MapMaker : MonoBehaviour
 {
     [SerializeField, Header("読込むテキストファイル")]
     TextAsset textAsset;
-    [SerializeField, Header("マップチップ設定")]
-    List<MapChip> mapChipList;
+
+    [SerializeField, Header("マップチップ設定")] List<MapChip> mapChipList;
 
     string[][] mapChip; //マップチップ
 
@@ -32,7 +34,11 @@ public class MapMaker : MonoBehaviour
     /// </summary>
     void ReadText()
     {
-        if (textAsset == null) {  return; }
+        if (textAsset == null)
+        {
+            return;
+        }
+
         StringReader reader = new StringReader(textAsset.text);
         List<string[]> txtList = new List<string[]>();
         while (reader.Peek() != -1)
@@ -92,7 +98,11 @@ public class MapMaker : MonoBehaviour
                     new Vector2( /*-xLength / 2*/ +j, /*yLength / 2*/ -i) * size;
 
                 if (!chip.isCollision) continue;
+#if UNITY_EDITOR
                 var col = Undo.AddComponent<BoxCollider2D>(obj);
+#else
+                var col = obj.AddComponent<BoxCollider2D>();
+#endif
                 col.size = size;
             }
         }
@@ -103,7 +113,7 @@ public class MapMaker : MonoBehaviour
     /// </summary>
     public void SetNumber()
     {
-        for(int i=0;i<mapChipList.Count;i++)
+        for (int i = 0; i < mapChipList.Count; i++)
         {
             mapChipList[i].number = i;
         }

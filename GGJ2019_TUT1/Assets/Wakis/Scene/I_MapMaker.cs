@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEditor;
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
 
 /// <summary>
 /// マップ生成
@@ -93,7 +95,10 @@ public class I_MapMaker : MonoBehaviour
                 obj.transform.position =
                     new Vector2(j, -i) * ItemPixel;
 
+#if UNITY_EDITOR
                 Undo.RegisterCreatedObjectUndo(obj, "Create IMap");
+#endif
+
             }
         }
     }
