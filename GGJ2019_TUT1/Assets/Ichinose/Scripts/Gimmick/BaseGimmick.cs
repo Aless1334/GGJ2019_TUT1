@@ -9,9 +9,11 @@ public abstract class BaseGimmick : MonoBehaviour
     [SerializeField]
     protected SpriteMask objectMask;
     private float restLightTime;
+    protected bool isLookForever;
 
     void Start()
     {
+        isLookForever = false;
         objectMask.gameObject.SetActive(false);
         Init();
         restLightTime = -1;
@@ -19,6 +21,12 @@ public abstract class BaseGimmick : MonoBehaviour
 
     void Update()
     {
+        if (isLookForever)
+        {
+            objectMask.gameObject.SetActive(true);
+            Action();
+            return;
+        }
         if (restLightTime >= 0)
             restLightTime -= Time.deltaTime;
         

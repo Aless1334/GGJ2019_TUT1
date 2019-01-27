@@ -22,6 +22,7 @@ public class WoodGimmick : BaseGimmick
         if (!player.HavingItem.HasFlag(ItemType.Ax)) return;
         AxEffect.SetActive(true);
         //Destroy(gameObject);
+        isLookForever = true;
         Invoke("ObjDestroy", 0.5f);
         AudioManager.PlayAudio("Sword");
     }
