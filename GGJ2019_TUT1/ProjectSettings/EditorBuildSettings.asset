@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: bea5c6dcc6e5f354ca43c6c3db46dbc4
-  - enabled: 0
-    path: Assets/Scenes/Main.unity
-    guid: b3ff7ae5e364be94083c11cbfa4ad765
   - enabled: 1
     path: Assets/Wakis/Scene/Stage0/Stage00.unity
     guid: 852dde1045a7328429e523c9337c85e1
