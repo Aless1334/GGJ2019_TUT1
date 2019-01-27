@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2194300090641791842}
   - component: {fileID: 2194300090641791900}
   - component: {fileID: 5843033892544201957}
+  - component: {fileID: 4317828445577199992}
   m_Layer: 2
   m_Name: Wolf
   m_TagString: Untagged
@@ -206,3 +207,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wolf: {fileID: 0}
   chaseLimitDistance: 3
+--- !u!95 &4317828445577199992
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2194300090641791845}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f28bffc2f3b08b34d8b1b8d83bfebd17, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
