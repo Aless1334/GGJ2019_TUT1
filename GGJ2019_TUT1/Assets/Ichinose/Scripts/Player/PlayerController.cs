@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dead()
     {
+        if (isClear) return;
         if (fadeManager == null) return;
         isDeath = true;
         fadeManager.SetReLoad();

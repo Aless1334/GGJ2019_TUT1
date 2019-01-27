@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class LightMask : MonoBehaviour
 {
-    [SerializeField] private float originSize;
+    [SerializeField]
+    private float originSize;
+    [SerializeField, Range(1, 100), Header("大きさ")]
+    float sonarScale = 4.0f;
 
     public float LimitTime { private get; set; }
     private float acceptTime;
@@ -29,8 +32,13 @@ public class LightMask : MonoBehaviour
     void Update()
     {
         acceptTime += Time.deltaTime;
-        var scale = (LimitTime - acceptTime*0.6f) / LimitTime * 1.0f * originSize;
-        transform.localScale = new Vector3(scale, scale, 1);
+        acceptTime = acceptTime > LimitTime ? LimitTime : acceptTime;
+        //var scale = (LimitTime - acceptTime*0.6f) / LimitTime * 1.0f * originSize;
+        //transform.localScale = new Vector3(scale, scale, 1);
+
+        float percent = acceptTime / LimitTime;
+        float scale = Mathf.Cos((180 - 90 * percent) / 180 * Mathf.PI);
+        transform.localScale = Vector2.one * scale * sonarScale;
 
         if (acceptTime >= LimitTime)
             gameObject.SetActive(false);

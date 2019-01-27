@@ -36,5 +36,6 @@ public class BrokenGimmick : BaseGimmick
         effect.SetActive(true);
         AudioManager.PlayAudio("Wine");
         isBreak = true;
+        isLookForever = true;
     }
 }
