@@ -76,7 +76,7 @@ public class FadeManager : MonoBehaviour
     {
         if (GetFadeEnd() && !manualControl)
         {
-            Load();
+            SceneLoad();
             return;
         }
 
