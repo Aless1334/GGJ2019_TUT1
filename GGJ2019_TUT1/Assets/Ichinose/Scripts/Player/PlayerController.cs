@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Nagasono.AudioScripts;
 using UnityEngine;
 
 /// <summary>
@@ -73,9 +74,9 @@ public class PlayerController : MonoBehaviour
     public void Dead()
     {
         if (fadeManager == null) return;
+        AudioManager.PlayAudio("EnemyHit");
         fadeManager.SetReLoad();
         fadeManager.SetFadeOut();
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
