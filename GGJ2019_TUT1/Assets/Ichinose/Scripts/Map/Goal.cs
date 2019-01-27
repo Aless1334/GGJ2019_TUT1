@@ -6,6 +6,7 @@ public class Goal : MonoBehaviour
 {
     [SerializeField, Header("追跡するタグ名設定(chaseTarget が NULL なら使用)")]
     TagName tagName = TagName.Player;
+
     [SerializeField, Header("追跡するオブジェクト(chaseTarget が NULL じゃなければ使用)")]
     GameObject chaseTarget;
 
@@ -25,7 +26,7 @@ public class Goal : MonoBehaviour
     {
         if (col.gameObject != target) return;
         if (fadeManager == null) return;
-        Instantiate(nextAnim);
+        StartCoroutine(AnimInstantiate());
         fadeManager.SetFadeOut(true);
         GimmickScore.Instance.SetPoint();
         Nagasono.AudioScripts.AudioManager.PlayAudio("Goal");
@@ -43,6 +44,14 @@ public class Goal : MonoBehaviour
             target = objs[0];
             return;
         }
+
         target = chaseTarget;
+    }
+
+    IEnumerator AnimInstantiate()
+    {
+        yield return new WaitForSeconds(2.0f);
+        var transform1 = Camera.main.transform;
+        Instantiate(nextAnim, transform1.position + Vector3.forward, Quaternion.identity, transform1);
     }
 }

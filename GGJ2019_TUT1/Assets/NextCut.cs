@@ -1,34 +1,36 @@
-
-﻿using System.Collections;
+﻿
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NextCut : MonoBehaviour
 {
-    private Vector3 eye_Player;
+    private const float MoveDistance = 6.0f;
+    private const float AnimTime = 4.0f;
+    
+    private Vector3 moveAmount;
 
     FadeManager fadeManager;
 
+    private float beginTime;
+    
     // Start is called before the first frame update
     void Start()
     {
-
+        moveAmount = new Vector3(-MoveDistance / AnimTime, 0, 0);
+        beginTime = Time.time;
+        
         fadeManager = FindObjectOfType<FadeManager>();        
-        eye_Player = GameObject.Find("Main Camera").transform.position;
-        eye_Player.z = 0f;
-        this.gameObject.transform.position=eye_Player=eye_Player+new Vector3 (6f,-1f,0f);
         Nagasono.AudioScripts.AudioManager.PlayAudio("CutRun");
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.transform.position -= new Vector3(2f* Time.deltaTime,0f,0f);
-        if (this.transform.position.x < eye_Player.x - 10f)
+        transform.position += moveAmount * Time.deltaTime;
+        if (Time.time - beginTime > AnimTime)
         {
-            //END
             fadeManager.SceneLoad();
-
         }
     }
 }

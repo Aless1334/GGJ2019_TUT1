@@ -127,7 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagName: 5
   chaseTarget: {fileID: 0}
-  nextAnim: {fileID: 1831449526, guid: 88e616a425bd5a24c82660da33fe21bd, type: 3}
+  nextAnim: {fileID: 7581596547702639109, guid: 5e34241798b5bf147ba5eaaa3dea5196,
+    type: 3}
 --- !u!61 &3799795035812860504
 BoxCollider2D:
   m_ObjectHideFlags: 0
