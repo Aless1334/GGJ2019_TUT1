@@ -69,11 +69,11 @@ public class FadeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetFadeEnd())
-        {
-            Load();
-            return;
-        }
+//        if (GetFadeEnd())
+//        {
+//            Load();
+//            return;
+//        }
 
         FadeIn();
         FadeOut();
@@ -277,5 +277,13 @@ public class FadeManager : MonoBehaviour
     public void SetLoadScene(LoadScene scene)
     {
         this.scene = scene;
+    }
+
+    public void SceneLoad()
+    {
+        if (isReLoad)
+            ReLoad();
+        else
+            Load();
     }
 }
