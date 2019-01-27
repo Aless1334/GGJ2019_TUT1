@@ -24,6 +24,7 @@ public class LoadScene
 
     public void ReLoad()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         return;
     }
 

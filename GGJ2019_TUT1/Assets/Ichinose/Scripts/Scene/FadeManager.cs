@@ -67,7 +67,7 @@ public class FadeManager : MonoBehaviour
         fadeEnd = false;
 
         manualControl = false;
-        
+
         SetFadeIn();
     }
 
@@ -248,13 +248,14 @@ public class FadeManager : MonoBehaviour
 
     public void SetFadeIn()
     {
+        if (GetFade() || GetFadeEnd()) return;
         fadeIn = true;
         fadeOut = false;
     }
 
     public void SetFadeOut(bool manual = false)
     {
-        if (GetFade()) return;
+        if (GetFade() || GetFadeEnd()) return;
         fadeIn = false;
         fadeOut = true;
         manualControl = manual;
@@ -287,9 +288,7 @@ public class FadeManager : MonoBehaviour
 
     public void SceneLoad()
     {
-        if (isReLoad)
-            ReLoad();
-        else
-            Load();
+        ReLoad();
+        Load();
     }
 }
