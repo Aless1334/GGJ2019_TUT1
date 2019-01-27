@@ -163,11 +163,11 @@ public class TitleRun : MonoBehaviour
             pos.x += Time.deltaTime * speed;
             woodList[i].transform.position = pos;
 
-            foreach(Transform t in woodList[i].transform)
+            foreach (Transform t in woodList[i].transform)
             {
                 var sr = t.GetComponent<SpriteRenderer>();
                 if (sr == null) continue;
-                sr.sortingOrder = pY <= woodList[i].transform.position.y ? -49 - i : -51 + i;
+                sr.sortingOrder = pY <= woodList[i].transform.position.y ? -50 - (i + 1) : -50 + (i + 1);
             }
         }
 
