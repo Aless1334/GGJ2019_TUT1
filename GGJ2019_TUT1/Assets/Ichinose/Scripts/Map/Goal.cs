@@ -12,6 +12,8 @@ public class Goal : MonoBehaviour
     GameObject target; //追跡するオブジェクト
     FadeManager fadeManager;
 
+    public GameObject nextAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,8 @@ public class Goal : MonoBehaviour
     {
         if (col.gameObject != target) return;
         if (fadeManager == null) return;
-        fadeManager.SetFadeOut();
+        Instantiate(nextAnim);
+        fadeManager.SetFadeOut(true);
         GimmickScore.Instance.SetPoint();
         Nagasono.AudioScripts.AudioManager.PlayAudio("Goal");
     }
