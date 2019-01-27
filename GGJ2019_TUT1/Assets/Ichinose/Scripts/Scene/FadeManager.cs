@@ -35,6 +35,8 @@ public class FadeManager : MonoBehaviour
     List<List<Image>> imageList;
     List<Image> randomList;
 
+    private bool manualControl;
+
     // Use this for initialization
     void Start()
     {
@@ -63,13 +65,16 @@ public class FadeManager : MonoBehaviour
         fadeIn = false;
         fadeOut = false;
         fadeEnd = false;
+
+        manualControl = false;
+        
         SetFadeIn();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GetFadeEnd())
+        if (GetFadeEnd() && !manualControl)
         {
             Load();
             return;
@@ -247,11 +252,12 @@ public class FadeManager : MonoBehaviour
         fadeOut = false;
     }
 
-    public void SetFadeOut()
+    public void SetFadeOut(bool manual = false)
     {
         if (GetFade()) return;
         fadeIn = false;
         fadeOut = true;
+        manualControl = manual;
     }
 
     public bool GetFadeIn()
