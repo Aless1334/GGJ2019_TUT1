@@ -5,7 +5,7 @@ using UnityEngine;
 public class Wolf_ver3 : MonoBehaviour
 {
     public Vector3 chaseTarget;
-    [SerializeField] private GameObject player;
+    public GameObject player;
     [SerializeField] private Collider2D wall;
     [SerializeField] private bool isOnCollision;
     public float speed;
@@ -18,6 +18,11 @@ public class Wolf_ver3 : MonoBehaviour
     private bool isNowMove;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     void Start()
     {
         isNowMove = isMove;
@@ -35,7 +40,7 @@ public class Wolf_ver3 : MonoBehaviour
         {
             RayShoot(0,1);
         }
-        player = GameObject.FindGameObjectWithTag("Player");
+
     }
 
     public void StartChase()
@@ -181,7 +186,6 @@ public class Wolf_ver3 : MonoBehaviour
                 }
             }
         }
-
         while (isOnCollision == true)
         {
             yield return null;
@@ -205,6 +209,7 @@ public class Wolf_ver3 : MonoBehaviour
     }
     private bool RayTest(int x, int y)
     {
+        Debug.Log("Ray");
         Vector2 origin = new Vector2(transform.position.x, transform.position.y);
         Vector2 direction = new Vector2(x, y);
         //Ray ray = new Ray(transform.position, direction);
@@ -213,9 +218,17 @@ public class Wolf_ver3 : MonoBehaviour
         Debug.DrawRay(origin, direction * 0.32f, Color.blue, 3f, false);
         if (hit.collider)
         {
-            Debug.Log(hit.collider.name);
-            return false;
-           
+            if(hit.collider.tag == "Sonar")
+            {
+                Debug.Log("Sonar");
+                return true;
+            }
+            else
+            {
+                Debug.Log("RayFalse");
+                return false;
+            }
+                    
         }
 
         else
@@ -250,6 +263,10 @@ public class Wolf_ver3 : MonoBehaviour
     private void IsMove()
     {
         StartCoroutine(IsMove2());
+        if(isMove == false && isChase == true&&isOnCollision == false)
+        {
+            chaseTarget = player.transform.position;
+        }
     }
 
     private IEnumerator IsMove2()
