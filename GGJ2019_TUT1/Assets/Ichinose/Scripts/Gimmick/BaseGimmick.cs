@@ -20,13 +20,10 @@ public abstract class BaseGimmick : MonoBehaviour
     void Update()
     {
         if (restLightTime >= 0)
-        {
             restLightTime -= Time.deltaTime;
-            if (restLightTime < 0)
-            {
-                objectMask.gameObject.SetActive(false);
-            }
-        }
+        
+        if (restLightTime < 0)
+            objectMask.gameObject.SetActive(false);
 
         Action();
     }
@@ -54,6 +51,7 @@ public abstract class BaseGimmick : MonoBehaviour
     public void LightUp(float time)
     {
         objectMask.gameObject.SetActive(true);
+        restLightTime = time;
     }
 
     protected void OnCollisionEnter2D(Collision2D other)
