@@ -20,7 +20,7 @@ MonoBehaviour:
   - Key: Enemy
     Setting:
       Clip: {fileID: 8300000, guid: 042458661f9930048953aa0a1c9368a2, type: 3}
-      Volume: 1
+      Volume: 1.52
   - Key: Goal
     Setting:
       Clip: {fileID: 8300000, guid: 4d55323d04780374182c9707129960a7, type: 3}
@@ -40,7 +40,7 @@ MonoBehaviour:
   - Key: EnemyHit
     Setting:
       Clip: {fileID: 8300000, guid: a5a683c2841f8a54eb9232af19d394ef, type: 3}
-      Volume: 1
+      Volume: 1.51
   - Key: CutRun
     Setting:
       Clip: {fileID: 8300000, guid: 99571eee899dad04087fc65ac0d7610a, type: 3}

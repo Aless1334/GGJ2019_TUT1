@@ -210,4 +210,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wolf: {fileID: 0}
-  chaseLimitDistance: 0
+  chaseLimitDistance: 3
