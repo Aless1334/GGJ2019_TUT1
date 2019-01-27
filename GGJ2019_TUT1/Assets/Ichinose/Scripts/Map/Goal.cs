@@ -25,6 +25,7 @@ public class Goal : MonoBehaviour
         if (fadeManager == null) return;
         fadeManager.SetFadeOut();
         GimmickScore.Instance.SetPoint();
+        Nagasono.AudioScripts.AudioManager.PlayAudio("Goal");
     }
 
     /// <summary>

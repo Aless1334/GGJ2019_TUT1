@@ -1,3 +1,4 @@
+
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class NextCut : MonoBehaviour
         eye_Player = GameObject.Find("Main Camera").transform.position;
         eye_Player.z = 0f;
         this.gameObject.transform.position=eye_Player=eye_Player+new Vector3 (4f,-1f,0f);
+        Nagasono.AudioScripts.AudioManager.PlayAudio("CutRun");
     }
 
     // Update is called once per frame

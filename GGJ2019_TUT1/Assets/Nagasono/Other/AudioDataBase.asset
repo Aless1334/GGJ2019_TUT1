@@ -41,3 +41,7 @@ MonoBehaviour:
     Setting:
       Clip: {fileID: 8300000, guid: a5a683c2841f8a54eb9232af19d394ef, type: 3}
       Volume: 1
+  - Key: CutRun
+    Setting:
+      Clip: {fileID: 8300000, guid: 99571eee899dad04087fc65ac0d7610a, type: 3}
+      Volume: 1
