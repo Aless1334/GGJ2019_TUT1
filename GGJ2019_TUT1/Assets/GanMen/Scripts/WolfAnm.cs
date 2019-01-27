@@ -7,22 +7,27 @@ public class WolfAnm : MonoBehaviour
     private const int ChaseOrder = 6;
     private const int StayOrder = 1;
 
-    public Wolf_ver3 wolf;
-    public Sprite s0, s1, s3, s4;
-
+    private Animator anmWolf;
+    private Wolf_ver3 wolf;
     private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        anmWolf = GetComponent<Animator>();
         wolf = GetComponent<Wolf_ver3>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    void Start()
+    {
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (wolf.isMove)
+        if (wolf.isChase)
         {
             AnmCtrl();
             spriteRenderer.sortingOrder = ChaseOrder;
@@ -41,22 +46,27 @@ public class WolfAnm : MonoBehaviour
         {
             if (wolf.chaseTarget.y >= wolf.transform.position.y)
             {
-                sprite.sprite = s1;
+  
+                anmWolf.SetBool("IsBack", true);
+                anmWolf.SetBool("IsFront", false); anmWolf.SetBool("IsLeft", false); anmWolf.SetBool("IsRight", false);
             }
             else
             {
-                sprite.sprite = s0;
+                anmWolf.SetBool("IsFront", true);
+                anmWolf.SetBool("IsBack", false); anmWolf.SetBool("IsLeft", false); anmWolf.SetBool("IsRight", false);
             }
         }
         else
         {
             if (wolf.chaseTarget.x >= wolf.transform.position.x)
             {
-                sprite.sprite = s4;
+                anmWolf.SetBool("IsRight", true);
+                anmWolf.SetBool("IsFront", false); anmWolf.SetBool("IsLeft", false); anmWolf.SetBool("IsBack", false);
             }
             else
             {
-                sprite.sprite = s3;
+                anmWolf.SetBool("IsLeft", true);
+                anmWolf.SetBool("IsFront", false); anmWolf.SetBool("IsBack", false); anmWolf.SetBool("IsRight", false);
             }
         }
     }
