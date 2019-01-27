@@ -37,12 +37,8 @@ public class FadeManager : MonoBehaviour
 
     private bool manualControl;
 
-
-    public GameObject nextAnim;
-    private bool animeOnTime = true;
-   
-// Use this for initialization
-void Start()
+    // Use this for initialization
+    void Start()
     {
         Vector2 screenSize = new Vector2(Screen.width, Screen.height);
         size = new Vector2(screenSize.x / xSize, screenSize.y / ySize);
@@ -71,7 +67,7 @@ void Start()
         fadeEnd = false;
 
         manualControl = false;
-        
+
         SetFadeIn();
     }
 
@@ -80,16 +76,7 @@ void Start()
     {
         if (GetFadeEnd() && !manualControl)
         {
-
-            //wakis
-            if (animeOnTime)
-            {
-                Instantiate(nextAnim);
-                animeOnTime = (!animeOnTime);
-            }
-            Invoke("SceneLoad", 4.5f);
-            //
-            //SceneLoad();
+            SceneLoad();
             return;
         }
 
@@ -261,13 +248,14 @@ void Start()
 
     public void SetFadeIn()
     {
+        if (GetFade() || GetFadeEnd()) return;
         fadeIn = true;
         fadeOut = false;
     }
 
     public void SetFadeOut(bool manual = false)
     {
-        if (GetFade()) return;
+        if (GetFade() || GetFadeEnd()) return;
         fadeIn = false;
         fadeOut = true;
         manualControl = manual;
@@ -300,9 +288,7 @@ void Start()
 
     public void SceneLoad()
     {
-        if (isReLoad)
-            ReLoad();
-        else
-            Load();
+        ReLoad();
+        Load();
     }
 }
