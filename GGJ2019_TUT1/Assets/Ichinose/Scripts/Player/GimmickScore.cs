@@ -82,8 +82,9 @@ public class GimmickScore
     /// <returns>全てのポイント</returns>
     public int AllScenePoint()
     {
+        if (Instance.scenePoint == null) return 0;
         int point = 0;
-        foreach (var i in scenePoint)
+        foreach (var i in Instance.scenePoint)
         {
             point = i.Value;
         }
@@ -96,6 +97,7 @@ public class GimmickScore
     /// <returns>全てのマックス値</returns>
     public int AllSceneMax()
     {
+        if (Instance.sceneMax == null) return 0;
         int max = 0;
         foreach (var i in sceneMax)
         {
