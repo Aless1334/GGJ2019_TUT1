@@ -31,6 +31,7 @@ public class ClearText : MonoBehaviour
         float result = GimmickScore.Instance.Result();
         myText = GetComponentInChildren<Text>();
         myText.text = "Score : " + result + "%";
+        SetAlpha(0);
     }
 
     private void SetWoods()
@@ -73,6 +74,7 @@ public class ClearText : MonoBehaviour
     {
         WoodsMove();
         MoveGround();
+        AddAlpha();
         FadeOut();
     }
 
@@ -81,9 +83,8 @@ public class ClearText : MonoBehaviour
         if (woods == null || isEnd) return;
         var pos = woods.transform.position;
         pos.y -= Time.deltaTime * speed;
-        pos.y = Mathf.Clamp(pos.y, -woodsMoveY, 0);
         woods.transform.position = pos;
-        if (pos.y <= -woodsMoveY * 0.8f) isEnd = true;
+        if (pos.y <= -woodsMoveY * 1.2f) isEnd = true;
     }
 
     void MoveGround()
@@ -96,9 +97,26 @@ public class ClearText : MonoBehaviour
     {
         if (!isEnd) return;
         if (fadeManager == null || fadeManager.GetFadeEnd() || fadeManager.GetFade()) return;
+        if (myText.color.a < 1.0f) return;
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
         {
             fadeManager.SetFadeOut();
         }
+    }
+
+    void AddAlpha()
+    {
+        float alpha = myText.color.a;
+        if (!isEnd || alpha >= 1.0f) return;
+        alpha += Time.deltaTime;
+        alpha = alpha > 1 ? 1 : alpha;
+        SetAlpha(alpha);
+    }
+
+    void SetAlpha(float alpha = 1.0f)
+    {
+        Color color = myText.color;
+        color.a = alpha;
+        myText.color = color;
     }
 }
