@@ -15,25 +15,25 @@ public class WolfCtrl : MonoBehaviour
     }
     void Start()
     {
-        
         wolf.isChase = false;
+        // wolf.isChase = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //ChaseCheck();
+        ChaseCheck();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Sonar"&&wolf.isChase==false)
+        if (collision.gameObject.tag == "Sonar" && wolf.isChase == false)
         {
             AudioManager.PlayAudio("Enemy");
             wolf.StartChase();
         }
 
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             AudioManager.PlayAudio("EnemyHit");
             collision.GetComponent<PlayerController>().Dead();
@@ -42,8 +42,10 @@ public class WolfCtrl : MonoBehaviour
 
     private void ChaseCheck()
     {
-        if(Mathf.Abs(wolf.player.transform.position.x - transform.transform.position.x) >= chaseLimitDistance 
-            || Mathf.Abs(wolf.player.transform.position.y - transform.transform.position.y) >= chaseLimitDistance)
+        float nowChaseDistance = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(wolf.player.transform.position.x - transform.transform.position.x), 2)
+            + Mathf.Pow(Mathf.Abs(wolf.player.transform.position.y - transform.transform.position.y), 2));
+
+        if (nowChaseDistance >= chaseLimitDistance)
         {
             wolf.isChase = false;
         }

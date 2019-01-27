@@ -16,11 +16,12 @@ public class Wolf_ver3 : MonoBehaviour
     public float distance;
     public bool isMove;
     private bool isNowMove;
-
+    private Collider2D collider2D;
     // Start is called before the first frame update
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        collider2D = GetComponent<BoxCollider2D>();
     }
 
     void Start()
@@ -33,7 +34,8 @@ public class Wolf_ver3 : MonoBehaviour
     {
         if (isChase == true)
         {
-            transform.position = Vector3.Lerp(transform.position, chaseTarget, speed);
+            Vector3 vec3 = Vector3.Lerp(transform.position, chaseTarget, speed);
+            transform.position = new Vector3(vec3.x, vec3.y, transform.position.z);
         }
         IsMove();
         if (Input.GetKeyDown(KeyCode.Q))
@@ -51,14 +53,15 @@ public class Wolf_ver3 : MonoBehaviour
     private IEnumerator ChaseAI()
     {
         isChase = true;
-        chaseTarget = player.transform.position;
+        chaseTarget = new Vector3(player.transform.position.x, player.transform.position.y,transform.position.z) ;
         while (isOnCollision == false)
         {
             yield return null;
         }
+        Debug.Log("IE");
         if (Mathf.Abs(transform.position.y - player.transform.position.y) < Mathf.Abs(transform.position.x - player.transform.position.x))
         {
-
+            Debug.Log("a");
             if (player.transform.position.y < transform.position.y)
             {
                 canGo = RayTest(0, -1);
@@ -123,6 +126,7 @@ public class Wolf_ver3 : MonoBehaviour
         }
         else
         {
+            Debug.Log("b");
             if (player.transform.position.x < transform.position.x)
             {
                 canGo = RayTest(-1, 0);
@@ -214,11 +218,11 @@ public class Wolf_ver3 : MonoBehaviour
         Vector2 direction = new Vector2(x, y);
         //Ray ray = new Ray(transform.position, direction);
         //new Vector3(transform.position.x * x, transform.position.y * y, transform.position.z));
-        RaycastHit2D hit = Physics2D.Raycast(origin, direction, 0.32f);
-        Debug.DrawRay(origin, direction * 0.32f, Color.blue, 3f, false);
+        RaycastHit2D  hit = Physics2D.BoxCast(origin,new Vector2(0.1f,0.1f),0,direction);
+        
         if (hit.collider)
         {
-            if(hit.collider.tag == "Sonar")
+            if(hit.collider.tag == "Sonar"|| hit.collider.tag == "Player")
             {
                 Debug.Log("Sonar");
                 return true;
@@ -240,7 +244,7 @@ public class Wolf_ver3 : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.tag != "Sonar")
         {
             isOnCollision = true;
             wall = collision;
@@ -250,7 +254,7 @@ public class Wolf_ver3 : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.tag != "Sonar")
         {
             isOnCollision = false;
             //Invoke("AvoidReset", 1f);
@@ -263,9 +267,9 @@ public class Wolf_ver3 : MonoBehaviour
     private void IsMove()
     {
         StartCoroutine(IsMove2());
-        if(isMove == false && isChase == true&&isOnCollision == false)
+        if(isMove == false && isChase == true)
         {
-            chaseTarget = player.transform.position;
+            chaseTarget = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
         }
     }
 
