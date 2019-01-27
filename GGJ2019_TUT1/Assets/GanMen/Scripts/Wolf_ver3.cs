@@ -218,7 +218,7 @@ public class Wolf_ver3 : MonoBehaviour
         Vector2 direction = new Vector2(x, y);
         //Ray ray = new Ray(transform.position, direction);
         //new Vector3(transform.position.x * x, transform.position.y * y, transform.position.z));
-        RaycastHit2D  hit = Physics2D.BoxCast(origin,new Vector2(0.1f,0.1f),0,direction);
+        RaycastHit2D  hit = Physics2D.BoxCast(origin,new Vector2(0.05f,0.05f),0,direction);
         
         if (hit.collider)
         {
