@@ -27,9 +27,12 @@ public class PlayerController : MonoBehaviour
         get { return isMoving; }
     }
 
+    private bool isDeath;
+
     // Start is called before the first frame update
     void Start()
     {
+        isDeath = false;
         isMoving = false;
         havingItem = 0;
         velocity = Vector2.zero;
@@ -44,7 +47,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         ResetFlag();
-        PlayerInput();
+        if (!isDeath) PlayerInput();
         //PlayerMove();
     }
 
@@ -74,6 +77,7 @@ public class PlayerController : MonoBehaviour
     public void Dead()
     {
         if (fadeManager == null) return;
+        isDeath = true;
         AudioManager.PlayAudio("EnemyHit");
         fadeManager.SetReLoad();
         fadeManager.SetFadeOut();
