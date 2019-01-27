@@ -14,3 +14,4 @@ SE
 オノ使用	Sword.mp3
 オオカミ発見	Enemy.mp3
 オオカミヒット	EnemyHit.mp3
+カットシーン足音	CutSceneRun.mp3
