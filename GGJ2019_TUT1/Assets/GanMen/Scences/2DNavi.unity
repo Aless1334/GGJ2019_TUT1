@@ -15616,6 +15616,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1566935477}
+    - target: {fileID: 6071367566254896765, guid: 9564f9b60bc5b774bbcfef9996307534,
+        type: 3}
+      propertyPath: distance
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843033892544201957, guid: 9564f9b60bc5b774bbcfef9996307534,
+        type: 3}
+      propertyPath: chaseLimitDistance
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9564f9b60bc5b774bbcfef9996307534, type: 3}
 --- !u!4 &6075110260505412959
