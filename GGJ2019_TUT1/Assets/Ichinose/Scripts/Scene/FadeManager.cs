@@ -69,11 +69,11 @@ public class FadeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-//        if (GetFadeEnd())
-//        {
-//            Load();
-//            return;
-//        }
+        if (GetFadeEnd())
+        {
+            Load();
+            return;
+        }
 
         FadeIn();
         FadeOut();

@@ -78,7 +78,6 @@ public class PlayerController : MonoBehaviour
     {
         if (fadeManager == null) return;
         isDeath = true;
-        AudioManager.PlayAudio("EnemyHit");
         fadeManager.SetReLoad();
         fadeManager.SetFadeOut();
     }
