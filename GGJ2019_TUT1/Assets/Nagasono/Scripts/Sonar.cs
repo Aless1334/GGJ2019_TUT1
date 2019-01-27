@@ -46,7 +46,7 @@ public class Sonar : MonoBehaviour
             return;
         }
 
-        LightMaskPool.Instance.Generate(position).GetComponent<LightMask>().ariveTime =
+        LightMaskPool.Instance.Generate(position).GetComponent<LightMask>().LimitTime =
             BaseLightTime * (LimitMagnitude - (basePosition - position).magnitude) / LimitMagnitude;
     }
 }
