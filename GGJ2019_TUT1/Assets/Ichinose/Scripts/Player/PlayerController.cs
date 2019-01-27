@@ -28,6 +28,17 @@ public class PlayerController : MonoBehaviour
     }
 
     private bool isDeath;
+    private bool isClear;
+
+    public bool Death
+    {
+        get { return isDeath; }
+    }
+
+    public bool Clear
+    {
+        get { return isClear; }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +58,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         ResetFlag();
-        if (!isDeath) PlayerInput();
+        if (!isDeath && !isClear) PlayerInput();
         //PlayerMove();
     }
 
@@ -85,10 +96,16 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         BaseItem item;
-        if ((item = other.GetComponent<BaseItem>()) == null) return;
+        if ((item = other.GetComponent<BaseItem>()) != null)
+        {
+            havingItem |= item.Type;
+            item.Get();
+        }
 
-        havingItem |= item.Type;
-        item.Get();
+        if (other.CompareTag("GoalArea"))
+        {
+            isClear = true;
+        }
     }
 
     private void ResetFlag()

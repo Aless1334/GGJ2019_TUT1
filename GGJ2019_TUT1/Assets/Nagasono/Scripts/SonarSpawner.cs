@@ -27,6 +27,7 @@ public class SonarSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player.Clear || player.Death) return;
         restShootSonarTime -= ((player.Moving) ? sonarSetting.DashSonarRate : 1) * Time.deltaTime;
         if (restShootSonarTime < 0)
         {
