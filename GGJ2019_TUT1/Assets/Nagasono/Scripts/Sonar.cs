@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,8 @@ public class Sonar : MonoBehaviour
     private const float DelayLimit = 2f;
     private const float BaseLightTime = 2f;
 
-    [SerializeField] private GameObject lightMask;
+    [SerializeField]
+    private GameObject lightMask;
     private Vector3 basePosition;
     public Vector3 moveVector { private get; set; }
     public float delaySpeed { private get; set; }
@@ -23,10 +25,20 @@ public class Sonar : MonoBehaviour
 
     private void Update()
     {
+        Move();
+        Delete();
+    }
+
+    private void Delete()
+    {
+        if (delayTime <= 0) gameObject.SetActive(false);
+    }
+
+    private void Move()
+    {
         transform.position += moveVector * delayTime / (2f * delaySpeed) * Time.deltaTime;
         delayTime -= Time.deltaTime;
-        if (delayTime < 0)
-            gameObject.SetActive(false);
+        delayTime = Mathf.Clamp(delayTime, 0, DelayLimit);
     }
 
     private void OnTriggerEnter2D(Collider2D other1)
@@ -34,7 +46,7 @@ public class Sonar : MonoBehaviour
         if (other1.CompareTag("Player")) return;
         if (other1.CompareTag("Sonar")) return;
         if (other1.CompareTag("GoalArea")) return;
-        
+
         gameObject.SetActive(false);
 
         var position = transform.position;
