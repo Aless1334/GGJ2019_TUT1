@@ -62,6 +62,7 @@ MonoBehaviour:
   isRandom: 1
   isTitle: 0
   isGamePlay: 0
+  nextAnim: {fileID: 1831449526, guid: 88e616a425bd5a24c82660da33fe21bd, type: 3}
 --- !u!223 &223457708294410787
 Canvas:
   m_ObjectHideFlags: 0
