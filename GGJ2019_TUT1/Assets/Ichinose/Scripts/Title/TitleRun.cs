@@ -154,12 +154,21 @@ public class TitleRun : MonoBehaviour
     void MoveWood()
     {
         if (woodList == null) return;
-        foreach (var i in woodList)
+        woodList.Sort((a, b) => -(int)((a.transform.position.x - b.transform.position.x) * 100));
+
+        float pY = player.transform.position.y;
+        for (int i = 0; i < woodList.Count; i++)
         {
-            if (i == null) continue;
-            var pos = i.transform.position;
+            var pos = woodList[i].transform.position;
             pos.x += Time.deltaTime * speed;
-            i.transform.position = pos;
+            woodList[i].transform.position = pos;
+
+            foreach(Transform t in woodList[i].transform)
+            {
+                var sr = t.GetComponent<SpriteRenderer>();
+                if (sr == null) continue;
+                sr.sortingOrder = pY <= woodList[i].transform.position.y ? -49 - i : -51 + i;
+            }
         }
 
         var list = woodList.FindAll(i => i != null && i.transform.position.x >= fieldList.Count * fieldSize.x);
