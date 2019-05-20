@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4363116711855401487}
   - component: {fileID: 4363116711855401486}
   - component: {fileID: 2152235451291388987}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LightMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,3 +92,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originSize: 3.5
+  sonarScale: 4

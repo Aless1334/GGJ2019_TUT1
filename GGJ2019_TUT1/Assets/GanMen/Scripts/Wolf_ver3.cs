@@ -9,6 +9,8 @@ public class Wolf_ver3 : MonoBehaviour
     [SerializeField] private Collider2D wall;
     [SerializeField] private bool isOnCollision;
     public float speed;
+    private float lowSpeed;
+    private float highSpeed;
     public bool isChase;
     public float reach;
     //public Rigidbody2D rb;
@@ -22,6 +24,8 @@ public class Wolf_ver3 : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         collider2D = GetComponent<BoxCollider2D>();
+        lowSpeed = speed;
+        highSpeed = lowSpeed * 3f;
     }
 
     void Start()
@@ -32,6 +36,7 @@ public class Wolf_ver3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SpeedChange();
         if (isChase == true)
         {
             Vector3 vec3 = Vector3.Lerp(transform.position, chaseTarget, speed);
@@ -190,6 +195,7 @@ public class Wolf_ver3 : MonoBehaviour
                 }
             }
         }
+        yield return null;
         while (isOnCollision == true)
         {
             yield return null;
@@ -218,11 +224,12 @@ public class Wolf_ver3 : MonoBehaviour
         Vector2 direction = new Vector2(x, y);
         //Ray ray = new Ray(transform.position, direction);
         //new Vector3(transform.position.x * x, transform.position.y * y, transform.position.z));
-        RaycastHit2D  hit = Physics2D.BoxCast(origin,new Vector2(0.05f,0.05f),0,direction);
-        
+        RaycastHit2D hit = Physics2D.BoxCast(origin, new Vector2(0.2f, 0.2f), 0, direction);
+        Debug.DrawRay(origin, direction * 0.15f, Color.green, 5, false);
         if (hit.collider)
         {
-            if(hit.collider.tag == "Sonar"|| hit.collider.tag == "Player")
+           
+            if (hit.collider.tag == "Sonar"|| hit.collider.tag == "Player")
             {
                 Debug.Log("Sonar");
                 return true;
@@ -289,5 +296,18 @@ public class Wolf_ver3 : MonoBehaviour
             isMove = true;
         }
 
+    }
+
+    private void SpeedChange()
+    {
+        
+        if(isOnCollision == true)
+        {
+            speed = highSpeed;
+        }
+        else
+        {
+            speed = lowSpeed;
+        }
     }
 }

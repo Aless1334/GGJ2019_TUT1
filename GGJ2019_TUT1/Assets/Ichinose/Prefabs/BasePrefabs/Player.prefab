@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 955207327536506823}
   - component: {fileID: 180618015}
   - component: {fileID: 180618014}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5913754896241874774}
   - component: {fileID: 951889360496583160}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: New Sprite Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 5681235246202032617}
   - component: {fileID: 4926877776799616092}
   - component: {fileID: 8926567705049180392}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: compas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 51847776497188104}
   - component: {fileID: 5918520756517841150}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
